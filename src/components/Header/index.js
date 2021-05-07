@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as S from './styles';
 import logo from '../../assets/logo.png';
 import bell from '../../assets/bell.png';
@@ -12,9 +13,9 @@ function Header({ lateCount, clickNotification }) {
         <img src={logo} alt="Logo" />
       </S.LeftSide>
       <S.RightSide>
-        <a href="www.google.com.br">INÍCIO</a>
+        <Link to="/">INÍCIO</Link>
         <span className="dividir" />
-        <a href="www.google.com.br">NOVA TAREFA</a>
+        <Link to="/task">NOVA TAREFA</Link>
         <span className="dividir" />
         <a href="www.google.com.br">SINCRONIZAR CELULAR</a>
         <span className="dividir" />
