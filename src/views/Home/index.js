@@ -2,9 +2,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import * as S from './styles';
 
 import api from '../../services/api';
+import isConnected from '../../utils/isConnect';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -16,20 +18,14 @@ import filterItens from '../../utils/filterItens';
 function Home() {
   const [filterActived, setFilterActived] = useState('all');
   const [taks, setTaks] = useState([]);
-  const [lateCount, setLateCount] = useState(0);
+  const [redirect, setRedirect] = useState(false);
 
   async function loadTasks() {
     await api
-      .get(`/task/filter/${filterActived}/11:11:11:11:11:11`)
+      .get(`/task/filter/${filterActived}/${isConnected}`)
       .then(response => {
         setTaks(response.data);
       });
-  }
-
-  async function lateVerify() {
-    await api.get(`/task/filter/late/11:11:11:11:11:11`).then(response => {
-      setLateCount(response.data.length);
-    });
   }
 
   function Notification() {
@@ -38,12 +34,14 @@ function Home() {
 
   useEffect(() => {
     loadTasks();
-    lateVerify();
+
+    if (!isConnected) setRedirect(true);
   }, [filterActived]);
 
   return (
     <S.Container>
-      <Header lateCount={lateCount} clickNotification={Notification} />
+      {redirect && <Redirect to="/qrcode" />}
+      <Header clickNotification={Notification} />
       <S.FilterArea>
         {filterItens.map(item => {
           return (
@@ -63,12 +61,14 @@ function Home() {
 
       <S.Content>
         {taks.map(task => (
-          <TaskCard
-            type={task.type}
-            title={task.title}
-            when={task.when}
-            key={task._id}
-          />
+          <Link to={`/task/${task._id}`} key={task._id}>
+            <TaskCard
+              type={task.type}
+              title={task.title}
+              when={task.when}
+              done={task.done}
+            />
+          </Link>
         ))}
       </S.Content>
 

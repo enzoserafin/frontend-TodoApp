@@ -1,12 +1,31 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './styles';
 import logo from '../../assets/logo.png';
 import bell from '../../assets/bell.png';
+import api from '../../services/api';
+import isConnected from '../../utils/isConnect';
 
-function Header({ lateCount, clickNotification }) {
+function Header({ clickNotification }) {
+  const [lateCount, setLateCount] = useState();
+
+  async function lateVerify() {
+    await api.get(`/task/filter/late/${isConnected}`).then(response => {
+      setLateCount(response.data.length);
+    });
+  }
+
+  useEffect(() => {
+    lateVerify();
+  }, []);
+
+  async function logout() {
+    await localStorage.removeItem('@todo/macaddress');
+    window.location.reload();
+  }
+
   return (
     <S.Container>
       <S.LeftSide>
@@ -17,12 +36,23 @@ function Header({ lateCount, clickNotification }) {
         <span className="dividir" />
         <Link to="/task">NOVA TAREFA</Link>
         <span className="dividir" />
-        <a href="www.google.com.br">SINCRONIZAR CELULAR</a>
-        <span className="dividir" />
-        <button onClick={clickNotification}>
-          <img src={bell} alt="Notificação" />
-          <span>{lateCount}</span>
-        </button>
+        {!isConnected ? (
+          <Link to="/qrcode">SINCRONIZAR CELULAR</Link>
+        ) : (
+          <button type="button" onClick={logout}>
+            SAIR
+          </button>
+        )}
+
+        {lateCount && (
+          <>
+            <span className="dividir" />
+            <button onClick={clickNotification}>
+              <img src={bell} alt="Notificação" />
+              <span>{lateCount}</span>
+            </button>
+          </>
+        )}
       </S.RightSide>
     </S.Container>
   );
