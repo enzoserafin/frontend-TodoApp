@@ -1,21 +1,21 @@
 
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/enzoserafin/backend-TodoApp?color=%2304D361">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/enzoserafin/frontend-TodoApp?color=%2304D361">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/enzoserafin/backend-TodoApp">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/enzoserafin/frontend-TodoApp">
 
-  <a href="https://github.com/enzoserafin/backend-TodoApp/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/enzoserafin/backend-TodoApp">
+  <a href="https://github.com/enzoserafin/frontend-TodoApp/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/enzoserafin/frontend-TodoApp">
   </a>
 
   <a href="https://github.com/enzoserafin">
-    <img alt="Feito pela Rocketseat" src="https://img.shields.io/badge/feito%20por-Enzo Serafin-%237519C1">
+    <img alt="Feito por Enzo Serafin" src="https://img.shields.io/badge/feito%20por-Enzo Serafin-%237519C1">
   </a>
 </p>
 
 <h1 align="center">
-    Backend Todo App
+    Frontend Todo App
 </h1>
 
 <p align="center">
@@ -59,7 +59,7 @@ Este projeto é divido em três partes:
 2. Frontend
 3. Mobile
 
-Neste respositório há somente o Backend
+Neste respositório há somente o Frontend
 
 💡Tanto o Frontend quanto o Mobile precisam que o Backend esteja sendo executado para funcionar.
 
@@ -74,10 +74,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ```bash
 
 # Clone este repositório
-$ git clone git@github.com:enzoserafin/backend-TodoApp.git
+$ git clone git@github.com:enzoserafin/frontend-TodoApp.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd backend
+$ cd frontend
 
 # Instale as dependências
 $ npm install
@@ -85,12 +85,9 @@ $ npm install
 # Execute a aplicação em modo de desenvolvimento
 $ npm start
 
-# O servidor inciará na porta:3333 - acesse http://localhost:3333
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 
 ```
-<p align="center">
-  <a href="https://github.com/enzoserafin/backend-TodoApp/blob/master/backend-insomina.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
-</p>
 
 ---
 
@@ -98,16 +95,17 @@ $ npm start
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### [](https://github.com/tgmarinho/Ecoleta#server-nodejs--typescript)**Server**  ([NodeJS](https://nodejs.org/en/))
+#### **Website**  ([React](https://reactjs.org/))
 
--   **[Express](https://expressjs.com/)**
--   **[CORS](https://expressjs.com/en/resources/middleware/cors.html)**
+-   **[React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
+-   **[Axios](https://github.com/axios/axios)**
 -   **[Date-fns](https://www.npmjs.com/package/date-fns)**
--   **[Mongoose](https://www.npmjs.com/package/mongoose)**
+-   **[Qrcode.react](https://www.npmjs.com/package/qrcode.react)**
+-   **[styled-components](https://github.com/styled-components/styled-components)**
 
-> Veja o arquivo  [package.json](https://github.com/enzoserafin/backend-TodoApp/blob/master/package.json)
+> Veja o arquivo  [package.json](https://github.com/enzoserafin/frontend-TodoApp/blob/master/package.json)
 
-#### [](https://github.com/tgmarinho/Ecoleta#utilit%C3%A1rios)**Utilitários**
+#### [](https://github.com/enzoserafin/frontend-TodoApp)**Utilitários**
 
 -   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**
 
