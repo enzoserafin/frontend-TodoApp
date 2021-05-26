@@ -77,7 +77,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone git@github.com:enzoserafin/frontend-TodoApp.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd frontend
+$ cd web
 
 # Instale as dependências
 $ npm install
