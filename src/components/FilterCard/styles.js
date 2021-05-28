@@ -2,7 +2,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 260px;
+  min-width: 180px;
+  max-width: 260px;
+  /* width: 260px; */
   height: 60px;
   background: ${props => (props.actived ? '#ee6b26' : '#20295f')};
   padding: 10px;
